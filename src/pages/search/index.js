@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, TextInput } from 'react-native';
+import { View, TextInput, Text } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { MOCK_TYPES_SERVICES } from '../../helpers/index'
 
 function search() {
+
     return (
         <View style={{ flexDirection: 'row', marginTop: 20, justifyContent: "space-between" }}>
             <TextInput
@@ -24,6 +25,13 @@ function search() {
 
                 }}
             />
+            <Text>
+                {Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                }).format(10000)}
+
+            </Text>
             <AntDesign name={"filter"} onPress={() => { }} size={40} />
         </View>
     );

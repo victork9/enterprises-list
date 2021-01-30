@@ -15,6 +15,13 @@ function profile() {
                 <Text style={{ textAlign: "center", color: "black" }}>{infosUser.investor.investor_name}</Text>
                 <Text style={{ textAlign: "left", color: "black" }}>{infosUser.investor.country}, {infosUser.investor.city}</Text>
                 <Text style={{ textAlign: "left", color: "black" }}>{infosUser.investor.email}</Text>
+                <Text style={{ textAlign: "left", color: "black" }}>{
+                    Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    }).format(infosUser.investor.balance)}
+
+                </Text>
 
             </View>
         </>
