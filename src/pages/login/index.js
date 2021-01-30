@@ -53,7 +53,7 @@ function login() {
                 CommonActions.reset({
                     index: 0,
                     routes: [
-                        { name: 'ListEnterprise' },
+                        { name: 'BottomNav' },
 
                     ],
                 })
