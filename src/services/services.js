@@ -5,16 +5,10 @@ export function dataServiceGet(req) {
     return new Promise((resolve, reject) => {
         Axios.get(api.defaults.baseURL + req.uri, req.data, req.headers ? { headers: req.headers } : {})
             .then((response) => {
-                //  console.log(response.data)
-                if (response.data?.errors) {
-                    reject(response)
-                } else {
-                    resolve(response.data)
-                }
-
+                resolve(response.data)
             }).catch((error) => {
                 //  console.log(error.response.data)
-                reject(error.data.errors)
+                reject(error.response.data.errors[0])
 
             })
     })
@@ -31,8 +25,8 @@ export function dataServicePost(req) {
 
 
             }).catch((error) => {
-                console.log("eeeeeroooor", error.message)
-                reject(error.response?.errors)
+                console.log("eeeeeroooor", error.response.data.errors[0])
+                reject(error.response.data.errors[0])
             })
     })
 
