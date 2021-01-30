@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { View, TextInput, Text, TouchableOpacity, StyleSheet, ImageBackground, Image, Platform, Modal } from 'react-native';
 import { dataServicePost } from '../../services/services'
-// import { Container } from './styles';
 import background from '../../../images/imageBackground.png'
-import logo from '../../../images/logo_ioasys.png'
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { setInfoUser } from '../../store/actions/enterprise.action'
 function login() {
+
+    const dispatch = useDispatch();
+    const { infosUser } = useSelector(
+        (state) => state.enterpriseReducer,
+    );
     const [email, setEmail] = useState('testeapple@ioasys.com.br');
     const [password, setPassword] = useState('12341234');
     const [message, setMessage] = useState('');
@@ -32,18 +37,12 @@ function login() {
 
         dataServicePost(REQ).then((response) => {
 
-            console.log(response.data)
-            // const { uid, client, } = response.headers
-            //     const responseData = {
-            //         data: response.data,
-            //         uid,
-            //         client,
-            //         acessTokem: response.headers['access-token']
-            //     }
+            console.log(axios.defaults.headers)
+            dispatch(setInfoUser(response.data))
             axios.defaults.headers.common = {
-                ['access-token']: response.headers['access-token"'],
-                client: response.client,
-                uid: response.uid
+                ['access-token']: response.headers['access-token'],
+                client: response.headers.client,
+                uid: response.headers.uid
             };
 
         }).catch((error) => {
