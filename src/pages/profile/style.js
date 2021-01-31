@@ -1,8 +1,8 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Platform } from 'react-native'
 
 export default StyleSheet.create({
     view: {
-        marginTop: 30,
+        marginTop: Platform.OS === 'ios' ? 40 : 30,
         margin: 20,
         backgroundColor: "#d9d9d9d9",
         borderRadius: 20,

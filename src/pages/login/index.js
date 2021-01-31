@@ -25,6 +25,8 @@ function login() {
 
 
     async function Auth() {
+        const testeEmail = validateEmail(email)
+
         if (email == '') {
             setMessage('Por favor insira o email')
             setModalVisible(true)
@@ -33,9 +35,10 @@ function login() {
             setMessage('Por favor insira a senha')
             setModalVisible(true)
             return;
-        } else if (validateEmail(email) == false) {
+        } else if (testeEmail == false) {
             setMessage('Insira um email valido')
             setModalVisible(true)
+            return;
         }
         setLoading(true)
         const REQ = {
