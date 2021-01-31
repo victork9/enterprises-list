@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Text, TouchableOpacity, StyleSheet, ImageBackground, Image, Platform, Modal, Keyboard } from 'react-native';
+import { View, TextInput, Text, TouchableOpacity, ImageBackground, Image, Keyboard } from 'react-native';
 import { dataServicePost } from '../../services/services'
 import background from '../../../images/imageBackground.png'
 import axios from 'axios';
@@ -8,6 +8,9 @@ import { setInfoUser } from '../../store/actions/enterprise.action'
 import Spinner from 'react-native-loading-spinner-overlay'
 import ModalMessage from '../../components/ModalMessage'
 import { CommonActions, useNavigation } from '@react-navigation/native';
+
+import styles from './styles'
+
 function login() {
     const navigation = useNavigation()
     const dispatch = useDispatch();
@@ -115,45 +118,5 @@ function login() {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-
-    inputCenter: {
-
-        width: '80%',
-        height: 50,
-        borderWidth: 2,
-        borderColor: 'white',
-        padding: 5,
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10
-    },
-    buttonAuth: {
-        marginTop: 16,
-        borderWidth: 2,
-        borderColor: 'white',
-        borderRadius: 20,
-        width: '50%',
-        justifyContent: 'center',
-        padding: 10
-    },
-    image: {
-        width: 200,
-        height: 60,
-        position: 'absolute',
-        resizeMode: 'contain',
-        marginTop: Platform.OS === 'ios' ? 40 : 20,
-        zIndex: 10,
-        alignSelf: 'center'
-    },
-    ImageBackground: {
-        flex: 1,
-        width: '100%',
-
-        justifyContent: 'center',
-        alignItems: 'center',
-    }
-
-});
 
 export default login;

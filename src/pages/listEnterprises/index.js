@@ -1,14 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { View, FlatList, Text, SafeAreaView, Image, TextInput } from 'react-native';
+import { FlatList, SafeAreaView, } from 'react-native';
 import { dataServiceGet } from '../../services/services';
 import Spinner from 'react-native-loading-spinner-overlay'
 import Enterprisecomponents from '../../components/EnterpriseComponent'
-// import { Container } from './styles';
-const linkImages = 'https://empresas.ioasys.com.br'
+
+
 function listEnterprises() {
   const ref = useRef()
   const [loading, setLoading] = useState(true);
   const [dataEnterprises, setDataEnterprises] = useState([])
+
   useEffect(() => {
     async function listEnterprises() {
       const REQ = {
@@ -25,7 +26,7 @@ function listEnterprises() {
     }
     listEnterprises()
   }, [])
-  var secondTextInput;
+
   const cardEnterprise = (item) => {
 
     return (
