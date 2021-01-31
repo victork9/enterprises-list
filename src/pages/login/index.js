@@ -8,7 +8,7 @@ import { setInfoUser } from '../../store/actions/enterprise.action'
 import Spinner from 'react-native-loading-spinner-overlay'
 import ModalMessage from '../../components/ModalMessage'
 import { CommonActions, useNavigation } from '@react-navigation/native';
-
+import { validateEmail } from '../../helpers'
 import styles from './styles'
 
 function login() {
@@ -33,6 +33,9 @@ function login() {
             setMessage('Por favor insira a senha')
             setModalVisible(true)
             return;
+        } else if (validateEmail(email) == false) {
+            setMessage('Insira um email valido')
+            setModalVisible(true)
         }
         setLoading(true)
         const REQ = {
