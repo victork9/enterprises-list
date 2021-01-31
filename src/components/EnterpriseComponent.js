@@ -14,16 +14,16 @@ const Enterprisecomponents = ({ item }) => {
                 </View>
                 <View style={{ flex: 1 }}>
                     <Text style={{ textAlign: 'center', fontSize: 16, fontWeight: "bold" }}>Enterprise name:
-                    <Text style={style.descripton}>{item.item.enterprise_name}</Text>
+                    <Text style={style.description}>{item.item.enterprise_name}</Text>
                     </Text>
                     <Text style={style.title}>Location:
-                    <Text style={style.descripton}>{item.item.city}, {item.item.country}</Text>
+                    <Text style={style.description}>{item.item.city}, {item.item.country}</Text>
                     </Text>
                     <Text style={style.title}>Enterprise type:
-                    <Text style={style.descripton}>{item.item.enterprise_type.enterprise_type_name}</Text>
+                    <Text style={style.description}>{item.item.enterprise_type.enterprise_type_name}</Text>
                     </Text>
                     <Text numberOfLines={2} style={style.title}>Description:
-                    <Text style={style.descripton}>{item.item.description}</Text>
+                    <Text style={style.description}>{item.item.description}</Text>
                     </Text>
                 </View>
             </View>
